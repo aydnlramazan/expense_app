@@ -30,13 +30,17 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
+  removeExpense(Expense expense) {
+    setState(() {
+      expenses.remove(expense);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        foregroundColor: Colors.white,
         title: const Text("Expense App"),
-        backgroundColor: Colors.deepPurpleAccent,
         actions: [
           IconButton(
               onPressed: () {
@@ -49,7 +53,7 @@ class _MainPageState extends State<MainPage> {
               icon: const Icon(Icons.add))
         ],
       ),
-      body: ExpensesPage(expenses),
+      body: ExpensesPage(expenses, removeExpense),
     );
   }
 }

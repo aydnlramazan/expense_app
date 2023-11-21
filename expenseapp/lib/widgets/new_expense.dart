@@ -49,12 +49,13 @@ class _NewExpenseState extends State<NewExpense> {
     return Container(
       width: double.infinity,
       child: Padding(
-        padding: EdgeInsets.all(12.0),
+        padding: const EdgeInsets.all(12.0),
         child: Column(children: [
           TextField(
             controller: _expenseNameController,
             maxLength: 50,
-            decoration: InputDecoration(labelText: "Harcama Adı"),
+            decoration: const InputDecoration(
+                labelText: "Harcama Adı", hintText: "Yemek"),
           ),
           Row(
             children: [
@@ -63,7 +64,9 @@ class _NewExpenseState extends State<NewExpense> {
                   controller: _expensePriceController,
                   keyboardType: TextInputType.number,
                   decoration: const InputDecoration(
-                      labelText: "Harcama Miktarı", prefixText: "₺"),
+                      labelText: "Harcama Miktarı",
+                      prefixText: "₺",
+                      hintText: "200"),
                 ),
               ),
               IconButton(
@@ -122,7 +125,7 @@ class _NewExpenseState extends State<NewExpense> {
                     widget.onAdd(expense);
                     Navigator.pop(context);
                   },
-                  child: Text("Ekle")),
+                  child: const Text("Ekle")),
             ],
           ),
         ]),
